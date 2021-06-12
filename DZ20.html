@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ20</title>
+</head>
+<body>
+<script>
+    /*задание1*/
+    function getComparisonOfNumbers(num1, num2) {
+        return num1 > num2 ? '1' : num1 === num2 ? '0' : '-1';
+    }
+
+    let number1 = +prompt('Введите первое число:');
+    let number2 = +prompt('Введите второе число:');
+    getComparisonOfNumbers(number1, number2);
+    let result1 = getComparisonOfNumbers(number1, number2);
+    alert(`${result1}`);
+
+    /*задание2*/
+    function getFactorial(num1) {
+        let result = 1;
+        for (let i = 1; i <= num1; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    let number3 = +prompt('Введите первое число:');
+    getFactorial(number3);
+    let result2 = getFactorial(number3);
+    alert(`${result2}`);
+
+    /*задание3*/
+    function joinNumbers(array) {
+        let num = (array.join(''));
+        Number(num);
+        return num;
+    }
+
+    let arr1 = [];
+    for (let i = 0; i < 3; i++) {
+        arr1[i] = +prompt(`Введите число:`);
+    }
+    joinNumbers(arr1);
+    let result3 = joinNumbers(arr1);
+    alert(`${result3}`);
+
+    /*задание4*/
+    function getSquare(num1, num2) {
+        return num2 !== '' ? num1 * num1 : num1 * num2;
+    }
+
+    let number4 = +prompt('Введите ширину прямоугольника:');
+    let number5 = +prompt('Введите длину прямоугольника:');
+    getSquare(number4, number5);
+    let result4 = getSquare(number4, number5);
+    alert(`${result4}`);
+
+    /*задание5*/
+    function getPerfectNumber(num1) {
+        let result = 0;
+        for (let i = 1; i < num1; i++) {
+            if (num1 % i === 0) {
+                result += i;
+            }
+        }
+        return result === num1;
+    }
+
+    let number6 = +prompt('Введите число:');
+    getPerfectNumber(number6);
+    let result5 = getPerfectNumber(number6);
+    alert(`${result5}`);
+
+    /*задание6*/
+    function getPerfectRangeNumber(num1, num2) {
+        let result = '';
+        for (let i = num1; i <= num2; i++) {
+            if (getPerfectNumber(i)) {
+                result += (`${i},`);
+            }
+        }
+        return result !== '' ? (`${result}`) : 'Нет совершенных чисел';
+    }
+
+    let number7 = +prompt('Введите минимальное число диапазона:');
+    let number8 = +prompt('Введите максимальное число диапазона:');
+    getPerfectRangeNumber(number7, number8);
+    let result6 = getPerfectRangeNumber(number7, number8);
+    alert(`${result6}`);
+
+    /*задание7*/
+    function getTime(num1, num2, num3) {
+        if (num1 < 10) {
+            num1 = (`0${num1}`);
+        }
+        if (num2 === '') {
+            num2 = (`00`);
+        } else if (num2 < 10) {
+            num2 = (`0${num2}`);
+        }
+        if (num3 === '') {
+            num3 = (`00`);
+        } else if (num3 < 10) {
+            num3 = (`0${num3}`);
+        }
+        return (`${num1}:${num2}:${num3}`);
+    }
+
+    let number9 = +prompt('Введите часы:');
+    let number10 = +prompt('Введите минуты:');
+    let number11 = +prompt('Введите секунды:');
+    getTime(number9, number10, number11);
+    let result7 = getTime(number9, number10, number11);
+    alert(`${result7}`);
+
+    /*задание8*/
+    function getTimeInSeconds(num1, num2, num3) {
+        return num1 * 3600 + num2 * 60 + num3;
+    }
+
+    let number12 = +prompt('Введите часы:');
+    let number13 = +prompt('Введите минуты:');
+    let number14 = +prompt('Введите секунды:');
+    getTimeInSeconds(number12, number13, number14);
+    let result8 = getTimeInSeconds(number12, number13, number14);
+    alert(`${result8}`);
+
+    /*задание9*/
+    function getSecondsInTime(num1) {
+        let h = Math.floor(num1 / 3600);
+        let m = Math.floor(num1 % 3600 / 60);
+        let s = Math.floor(num1 % 3600 % 60);
+        if (h < 10) {
+            h = (`0${h}`);
+        }
+        if (m < 10) {
+            m = (`0${m}`);
+        }
+        if (s < 10) {
+            s = (`0${s}`);
+        }
+        return (`${h}:${m}:${s}`);
+    }
+
+    let number15 = +prompt('Введите количество секунд:');
+    getSecondsInTime(number15);
+    let result9 = getSecondsInTime(number15);
+    alert(`${result9}`);
+
+    /*задание10*/
+    function getDifference(num1, num2, num3, num4, num5, num6) {
+        let data1 = getTimeInSeconds(num1, num2, num3);
+        let data2 = getTimeInSeconds(num4, num5, num6);
+        return getSecondsInTime(Math.abs(data1 - data2));
+    }
+
+    let number16 = +prompt('Введите часы:');
+    let number17 = +prompt('Введите минуты:');
+    let number18 = +prompt('Введите секунды:');
+    let number19 = +prompt('Введите часы:');
+    let number20 = +prompt('Введите минуты:');
+    let number21 = +prompt('Введите секунды:');
+    getDifference(number16, number17, number18, number19, number20, number21);
+    let result10 = getDifference(number16, number17, number18, number19, number20, number21);
+    alert(`${result10}`);
+</script>
+</body>
+</html>
